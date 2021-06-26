@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,24 +7,21 @@ import { FormControl, FormGroup } from '@angular/forms';
   styles: []
 })
 export class CadastroComponent implements OnInit {
-
   registerForm: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      name: new FormControl(''),
-      document: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
-      passwordConfirm: new FormControl('')
+    this.registerForm = this.formBuilder.group({
+      name: [''],
+      document: [''],
+      email: [''],
+      password: [''],
+      passwordConfirm: ['']
     });
-
   }
 
   addUser() {
     let x = this.registerForm.value;
   }
-
 }
