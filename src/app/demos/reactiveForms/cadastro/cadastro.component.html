@@ -10,10 +10,9 @@
         <label class="col-md control-label" for="name">Nome Completo</label>
         <div class="col-md-10">
           <input class="form-control" id="name" name="name" type="text" placeholder="Nome" formControlName="name"
-            [ngClass]="{'is-invalid': registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)}" />
-          <span class="text-danger"
-            *ngIf="registerForm.get('name').errors && (registerForm.get('name').dirty || registerForm.get('name').touched)">
-            <p>Preencha o campo nome!</p>
+            [ngClass]="{'is-invalid': displayMessage.name}" />
+          <span class="text-danger" *ngIf="displayMessage.name">
+            <p [innerHTML]="displayMessage.name"></p>
           </span>
         </div>
       </div>
@@ -23,14 +22,9 @@
         <div class="col-md-10">
           <input class="form-control" id="document" name="document" type="text" placeholder="CPF"
             formControlName="document" cpf [textMask]="{mask: MASKS.cpf.textMask}"
-            [ngClass]="{'is-invalid': registerForm.get('document').errors && (registerForm.get('document').dirty || registerForm.get('document').touched)}" />
-          <span class="text-danger"
-            *ngIf="registerForm.get('document')?.errors?.required && (registerForm.get('document').dirty || registerForm.get('document').touched)">
-            <p>Preencha o campo CPF!</p>
-          </span>
-          <span class="text-danger"
-            *ngIf="registerForm.get('document')?.errors?.cpf && (registerForm.get('document').dirty || registerForm.get('document').touched)">
-            <p>E-mail inválido!</p>
+            [ngClass]="{'is-invalid': displayMessage.document}" />
+          <span class="text-danger" *ngIf="displayMessage.document">
+            <p [innerHTML]="displayMessage.document"></p>
           </span>
         </div>
       </div>
@@ -39,14 +33,9 @@
         <label class="col-md control-label" for="email">E-mail</label>
         <div class="col-md-10">
           <input class="form-control" id="email" name="email" type="text" placeholder="E-mail" formControlName="email"
-            [ngClass]="{'is-invalid': registerForm.get('email').errors && (registerForm.get('email').dirty || registerForm.get('email').touched)}" />
-          <span class="text-danger"
-            *ngIf="registerForm.get('email')?.errors?.required && (registerForm.get('email').dirty || registerForm.get('email').touched)">
-            <p>Preencha o campo E-mail!</p>
-          </span>
-          <span class="text-danger"
-            *ngIf="registerForm.get('email')?.errors?.email && (registerForm.get('email').dirty || registerForm.get('email').touched)">
-            <p>E-mail inválido!</p>
+            [ngClass]="{'is-invalid': displayMessage.email}" />
+          <span class="text-danger" *ngIf="displayMessage.email">
+            <p [innerHTML]="displayMessage.email"></p>
           </span>
         </div>
       </div>
@@ -55,15 +44,9 @@
         <label class="col-md control-label" for="password">Senha</label>
         <div class="col-md-10">
           <input class="form-control" id="password" name="password" type="password" placeholder="Senha"
-            formControlName="password"
-            [ngClass]="{'is-invalid': registerForm.get('password').errors && (registerForm.get('password').dirty || registerForm.get('password').touched)}" />
-          <span class="text-danger"
-            *ngIf="registerForm.get('password')?.errors?.required && (registerForm.get('password').dirty || registerForm.get('password').touched)">
-            <p>Preencha o campo Senha!</p>
-          </span>
-          <span class="text-danger"
-            *ngIf="registerForm.get('password')?.errors?.rangeLength && (registerForm.get('password').dirty || registerForm.get('password').touched)">
-            <p>Tamanho da senha inválido!</p>
+            formControlName="password" [ngClass]="{'is-invalid': displayMessage.password}" />
+          <span class="text-danger" *ngIf="displayMessage.password">
+            <p [innerHTML]="displayMessage.password"></p>
           </span>
         </div>
       </div>
@@ -73,10 +56,9 @@
         <div class="col-md-10">
           <input class="form-control" id="passwordConfirm" name="passwordConfirm" type="password"
             placeholder="Confirme a Senha" formControlName="passwordConfirm"
-            [ngClass]="{'is-invalid': registerForm.get('passwordConfirm').errors && (registerForm.get('passwordConfirm').dirty || registerForm.get('passwordConfirm').touched)}" />
-          <span class="text-danger"
-            *ngIf="registerForm.get('passwordConfirm')?.errors && (registerForm.get('passwordConfirm').dirty || registerForm.get('passwordConfirm').touched)">
-            <p>As senhas não conferem!</p>
+            [ngClass]="{'is-invalid': displayMessage.passwordConfirm}" />
+          <span class="text-danger" *ngIf="displayMessage.passwordConfirm">
+            <p [innerHTML]="displayMessage.passwordConfirm"></p>
           </span>
         </div>
       </div>
