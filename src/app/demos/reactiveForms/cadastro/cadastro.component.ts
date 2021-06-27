@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgBrazilValidators } from 'ng-brazil';
 import { User } from './models/user';
+import { utilsBr } from 'js-brasil'
+import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,16 +14,20 @@ export class CadastroComponent implements OnInit {
   registerForm: FormGroup;
   user: User;
   formResult: string;
+  MASKS = utilsBr.MASKS
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    let password = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15])])
+    let passwordConfirm = new FormControl('', CustomValidators.equalTo(password))
+
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      document: [''],
+      document: ['', [Validators.required, NgBrazilValidators.cpf]],
       email: ['', [Validators.required, Validators.email]],
-      password: [''],
-      passwordConfirm: ['']
+      password: password,
+      passwordConfirm: passwordConfirm
     });
   }
 
