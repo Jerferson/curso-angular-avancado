@@ -52,4 +52,7 @@ export class ProdutoDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  mudarStatus(event: Produto) {
+    event.ativo = !event.ativo;
+  }
 }

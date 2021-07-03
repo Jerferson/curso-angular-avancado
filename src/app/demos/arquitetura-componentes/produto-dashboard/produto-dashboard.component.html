@@ -4,6 +4,8 @@
   <app-count-produto [produtos]="produtos"></app-count-produto>
 
   <div class="row text-center">
-    <app-card-detalhe *ngFor="let produto of produtos;" [produto]="produto" class="col-md4"></app-card-detalhe>
+    <app-card-detalhe class="col-md4" *ngFor="let produto of produtos;"
+    [produto]="produto"
+    (status)="mudarStatus($event)"></app-card-detalhe>
   </div>
 </div>
