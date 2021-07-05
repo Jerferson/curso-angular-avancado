@@ -27,5 +27,4 @@ export class EditarProdutoComponent implements OnInit {
   salvar() {
     this.router.navigate(['/produtos']);
   }
-
 }
