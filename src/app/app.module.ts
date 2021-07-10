@@ -10,6 +10,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
 import { NgBrazil, TextMask } from 'ng-brazil';
 import { CustomFormsModule } from 'ng2-validation';
 import { NavegacaoModule } from './navegacao/navegacao.model';
+import { AuthGuard } from './services/app.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { NavegacaoModule } from './navegacao/navegacao.model';
     CustomFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
