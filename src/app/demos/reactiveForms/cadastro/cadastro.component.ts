@@ -24,6 +24,8 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   genericValidator: GenericValidator;
   displayMessage: DisplayMessage = {};
 
+  mudancasNaoSalvas: boolean;
+
   constructor(private formBuilder: FormBuilder) {
     this.validationMessages = {
       name: {
@@ -71,6 +73,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
     merge(...controlBlurs).subscribe(() => {
       this.displayMessage = this.genericValidator.processarMensagens(this.registerForm);
+      this.mudancasNaoSalvas = true;
     });
   }
 
@@ -78,6 +81,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
     if (this.registerForm.dirty && this.registerForm.valid) {
       this.user = Object.assign({}, this.user, this.registerForm.value);
       this.formResult = JSON.stringify(this.registerForm.value);
+      this.mudancasNaoSalvas = false;
       return;
     }
     this.formResult = "Não está válido para submeter!!!";
