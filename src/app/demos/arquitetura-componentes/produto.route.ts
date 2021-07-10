@@ -15,6 +15,9 @@ export const rootRouterConfig: Routes = [
           component: ProdutoDashboardComponent,
           resolve: {
             produtos: ProdutosResolve
+          },
+          data: {
+            teste: 'informação'
           }
         }
       ]
