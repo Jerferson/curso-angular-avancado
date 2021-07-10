@@ -39,7 +39,10 @@ registerLocaleData(localePt);
     NavegacaoModule,
     CustomFormsModule,
     AppRoutingModule,
-    BarModule
+    BarModule.forRoot({
+      unidadeId: 1000,
+      unidadeToken: 'hgsdhagsdjksadjasdj'
+    })
   ],
   providers: [
     AuthGuard,
