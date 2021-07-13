@@ -18,6 +18,7 @@ import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPipe } from './demos/pipes/filmes/image.pipe';
 import { BarModule } from './demos/bar-di-zones/bar.module';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoModule } from './demos/todo-list/todo.module';
 
 
 registerLocaleData(localePt);
@@ -44,7 +45,8 @@ registerLocaleData(localePt);
     BarModule.forRoot({
       unidadeId: 1000,
       unidadeToken: 'hgsdhagsdjksadjasdj'
-    })
+    }),
+    TodoModule
   ],
   providers: [
     AuthGuard,
