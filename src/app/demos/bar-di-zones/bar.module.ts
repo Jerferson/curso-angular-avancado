@@ -23,12 +23,7 @@ export class BarModule {
     }
   }
 
-  static forChild(): ModuleWithProviders {
-    return {
-      ngModule: BarModule,
-      providers: [
+  static forChild() {
 
-      ]
-    }
   }
 }

@@ -17,6 +17,7 @@ import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPipe } from './demos/pipes/filmes/image.pipe';
 import { BarModule } from './demos/bar-di-zones/bar.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 registerLocaleData(localePt);
@@ -34,6 +35,7 @@ registerLocaleData(localePt);
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     TextMask.TextMaskModule,
     NgBrazil,
     NavegacaoModule,

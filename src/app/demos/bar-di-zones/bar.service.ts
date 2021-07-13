@@ -1,9 +1,23 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable, Injector } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { BarUnidadeConfig, BAR_UNIDADE_CONFIG } from "./bar.config";
+import { config } from "process";
 
+
+export function BarFactory(http: HttpClient, injector: Injector) {
+  return new BarService(http, injector.get(BAR_UNIDADE_CONFIG));
+}
 @Injectable()
 export class BarService {
 
-  constructor() {}
+  constructor(
+    private http: HttpClient,
+    @Inject(BAR_UNIDADE_CONFIG) private config: BarUnidadeConfig
+  ) {}
+
+  public obterUnidade(): string {
+    return 'Unidade ID: ' + this.config.unidadeId + ' Token: ' + this.config.unidadeToken;
+  }
 
   obterBebidas(): string {
     return 'Bebidas';
@@ -32,4 +46,7 @@ export class BarServiceMock {
   obterRefeicoes(): string {
     return 'Refeições - Mock';
   }
+}
+export abstract class BebidaService {
+  obterBebidas: () => string
 }
