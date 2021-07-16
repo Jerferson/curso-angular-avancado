@@ -1,0 +1,13 @@
+.create {
+  border-radius: 4px;
+  margin-bottom: 1rem !important;
+}
+
+.create button {
+  background: #552075;
+  color: #fff;
+}
+.create button:hover {
+  background: #6d3591;
+  color: rgb(228, 226, 226);
+}

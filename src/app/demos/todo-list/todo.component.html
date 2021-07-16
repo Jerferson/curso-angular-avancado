@@ -1,5 +1,13 @@
 <div class="container main-container">
 
+
+    <div class="input-group md-3 create">
+        <input type="text" class="form-control" #new placeholder="Nome da tarefa" aria-label="Nome da tarefa"
+            aria-describedby="basic-addon2" [(ngModel)]="newTask">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="createTask()">Criar</button>
+        </div>
+    </div>
     <div class="row text-center">
         <tasks class="col-md-4"></tasks>
         <tasks-iniciadas class="col-md-4"></tasks-iniciadas>
